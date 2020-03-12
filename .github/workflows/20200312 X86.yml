@@ -58,6 +58,7 @@ jobs:
         run: |
           rm -f ./.config*
           touch ./.config
+          cat >> .config <<EOF
           CONFIG_MODULES=y
           CONFIG_HAVE_DOT_CONFIG=y
           CONFIG_TARGET_x86=y
@@ -6264,7 +6265,7 @@ jobs:
           # font-utils
           #
           # CONFIG_PACKAGE_fontconfig is not set
-
+          EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       
